@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "XMLParser",
 "class": "LevelParser",
 "language": "GDScript",
-"path": "res://Scripts/Level.gd"
+"path": "res://scripts/Level.gd"
 } ]
 _global_script_class_icons={
 "LevelParser": ""
@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Quick Run"
-run/main_scene="res://Scenes/Menu.tscn"
+run/main_scene="res://scenes/Menu.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 
 [display]

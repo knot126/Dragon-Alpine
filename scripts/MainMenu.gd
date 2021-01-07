@@ -10,14 +10,11 @@ func _ready():
 	button.connect("pressed", self, "OnButtonPress")
 	
 	var x = LevelParser.new()
-	x.open("res://Assets/game.xml")
+	x.open("res://assets/game.xml")
 	while (x.get_node_name() != "level"):
 		x.read()
 	label.text = x.get_node_name()
-
-#func _process(delta):
-#	ac += delta
-#	get_node("Label").text = str(ac)
+	label.text += x.get_attribute_name(0)
 
 func OnButtonPress():
-	get_tree().change_scene("res://Scenes/Main.tscn")
+	get_tree().change_scene("res://scenes/Main.tscn")

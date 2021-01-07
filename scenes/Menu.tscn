@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Theme/MainTheme.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Fonts/Jost_Medium.tres" type="DynamicFont" id=3]
-[ext_resource path="res://Assets/Images/logo.png" type="Texture" id=4]
+[ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/Theme/MainTheme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/Images/logo.png" type="Texture" id=3]
+[ext_resource path="res://assets/Fonts/Jost_Medium.tres" type="DynamicFont" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -19,7 +19,7 @@ margin_left = 575.0
 margin_top = 342.0
 margin_right = 703.0
 margin_bottom = 384.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Play Game"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -28,7 +28,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Game Menu"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,14 +48,14 @@ margin_left = 10.0
 margin_top = 50.0
 margin_right = 140.0
 margin_bottom = 64.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 
 [node name="Label2" type="Label" parent="Panel"]
 margin_left = 10.0
 margin_top = 12.0
 margin_right = 88.0
 margin_bottom = 26.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Select level:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,7 +67,7 @@ anchor_right = 0.5
 margin_left = -193.0
 margin_right = 193.0
 margin_bottom = 271.0
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

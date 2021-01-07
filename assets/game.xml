@@ -1,0 +1,8 @@
+<game>
+	<levels>
+		<level name="base"/>
+		<level name="canyon"/>
+		<level name="mine"/>
+		<level name="cave"/>
+	</levels>
+</game>
