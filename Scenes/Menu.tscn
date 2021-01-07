@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Theme/MainTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/Fonts/Jost_Medium.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Images/logo.png" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 575.0
+margin_top = 342.0
+margin_right = 703.0
+margin_bottom = 384.0
+custom_fonts/font = ExtResource( 3 )
+text = "Play Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 3 )
+text = "Game Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -150.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+margin_left = 10.0
+margin_top = 50.0
+margin_right = 140.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 3 )
+
+[node name="Label2" type="Label" parent="Panel"]
+margin_left = 10.0
+margin_top = 12.0
+margin_right = 88.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 3 )
+text = "Select level:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -193.0
+margin_right = 193.0
+margin_bottom = 271.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
