@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://assets/Theme/MainTheme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/Images/logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/Fonts/Jost_Medium.tres" type="DynamicFont" id=4]
 
@@ -14,13 +14,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-margin_left = 575.0
-margin_top = 342.0
-margin_right = 703.0
-margin_bottom = 384.0
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -21.0
+margin_right = 64.0
+margin_bottom = 21.0
 custom_fonts/font = ExtResource( 4 )
 text = "Play Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = 40.0
+margin_right = 64.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 4 )
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = 104.0
+margin_right = 64.0
+margin_bottom = 146.0
+custom_fonts/font = ExtResource( 4 )
+text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,7 +72,7 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -180.0
-margin_bottom = 100.0
+margin_bottom = 150.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,6 +94,13 @@ text = "Select level:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 10.0
+margin_top = 100.0
+margin_right = 70.0
+margin_bottom = 142.0
+text = "Start"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.5

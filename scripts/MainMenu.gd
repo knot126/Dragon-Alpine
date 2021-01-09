@@ -4,7 +4,7 @@ var button
 var label
 
 func _ready():
-	button = $Button
+	button = $Play
 	label = $Label
 	
 	button.connect("pressed", self, "OnButtonPress")

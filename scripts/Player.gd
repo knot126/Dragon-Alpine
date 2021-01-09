@@ -1,8 +1,8 @@
-extends RigidBody
+extends KinematicBody
 
 var forward = 0.0
-var maxSpeed = 0.0
-var minSpeed = 0.0
+var maxSpeed = 8.0
+var minSpeed = 1.0
 var direction = 0.0
 
 func _ready():
@@ -20,10 +20,15 @@ func _physics_process(delta):
 	
 	# Update left and right movement
 	direction = (Input.get_action_strength("ui_right")) - (Input.get_action_strength("ui_left"))
-
-func _integrate_forces(state):
-	self.add_central_force(Vector3(0.0, 0.0, -3.0 * forward))
-	self.add_central_force(Vector3(3.0 * direction, 0.0, 0.0))
+	
+	# Move the player
+	if (!self.is_on_floor()):
+		self.move_and_collide(Vector3(0.0, -3.0 * delta, 0.0))
+	
+	# if (self.is_on_floor() and Input.get_):
+	
+	self.move_and_collide(Vector3(3.0 * direction * delta, 0.0, -3.0 * forward * delta))
+	
 
 func set_speed_settings(minspd, maxspd, current):
 	forward = current
