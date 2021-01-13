@@ -23,11 +23,7 @@ func _ready():
 func _process(delta):
 	# lol don't use "get_action_strength" here FIXME
 	if (Input.get_action_strength("ui_cancel") > 0.1):
-		get_tree().change_scene("res://scenes/Menu.tscn")
-		var f = File.new()
-		f.open("user://savegame.txt", File.WRITE)
-		f.store_string("gems=" + str(gems) + "\nscore=" + str(score) + "\nmap=NULLMAP")
-		f.close()
+		self.leaveGame()
 
 func _physics_process(delta):
 	# I just do most everything here since I think that would make some sense?
@@ -47,3 +43,21 @@ func getScore():
 
 func getGems():
 	return gems
+
+func getMap():
+	return g_GameConfig.levels[g_GameConfig.level]
+
+func getMapAndInc():
+	return self.getMap()
+
+func loadSegment(name):
+	pass
+
+func leaveGame():
+	get_tree().change_scene("res://scenes/Menu.tscn")
+	
+	# Savestate
+	var f = File.new()
+	f.open("user://savegame.txt", File.WRITE)
+	f.store_string("[MAIN]\ngems = " + str(gems) + "\nscore = " + str(score) + "\nmap = " + self.getMap())
+	f.close()
