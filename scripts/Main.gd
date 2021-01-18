@@ -1,9 +1,9 @@
 extends Spatial
 
 const senseitivity = 5
-const defSpeed = 1.75
-const minSpeed = 1.25
-const maxSpeed = 8.0
+const defSpeed = 2.25
+const minSpeed = 2.0
+const maxSpeed = 6.0
 
 var gems = 0
 var score = 0

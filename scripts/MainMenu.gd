@@ -5,7 +5,7 @@ var button_options
 var button_exit
 var button_start_debug
 var label_select_debug
-var label
+var version_note
 
 func _ready():
 	button_play = $Play
@@ -13,7 +13,7 @@ func _ready():
 	button_exit = $Exit
 	button_start_debug = $DEBUG/START
 	label_select_debug = $DEBUG/LEVEL
-	label = $Label
+	version_note = $VersionNote
 	
 	button_play.connect("pressed", self, "start_game")
 	button_exit.connect("pressed", self, "exit_game")
@@ -22,6 +22,8 @@ func _ready():
 	
 	g_GameConfig.load_levels()
 	label_select_debug.text = g_GameConfig.levels[g_GameConfig.level]
+	version_note.text = "Quick Run version " + g_GameConfig.get_game_version_string()
+	$DEBUG/SYSID.text = OS.get_unique_id()
 	
 	var a = {"test": "tset"}.hash()
 
