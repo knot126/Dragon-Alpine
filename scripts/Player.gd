@@ -1,42 +1,59 @@
 extends KinematicBody
 
-var forward = 0.0
-var maxSpeed = 8.0
-var minSpeed = 1.0
-var direction = 0.0
+var speed : float = 0.0   # Unused
+var maxSpeed : float = 8.0  # The player's max speed
+var minSpeed : float = 1.0  # The player's minium speed
+var jumpleft : float = 0.0  # The remaining percent of the jump left
+
+var vel : Vector3 = Vector3(0.0, 0.0, 0.0)
 
 func _ready():
-	add_to_group("Player")
+	self.add_to_group("Player")
 
 func _physics_process(delta):
-	# Update speed
-	forward -= (Input.get_action_strength("ui_down")) * 0.3
-	forward += (Input.get_action_strength("ui_up")) * 0.3
+	var veltmp2 : Vector2 = Vector2(0.0, 0.0)
 	
-	if (forward > maxSpeed):
-		forward = maxSpeed
-	if (forward < minSpeed):
-		forward = minSpeed
+	# LEFT and RIGHT
+	veltmp2.x += Input.get_action_strength("ui_right")
+	veltmp2.x -= Input.get_action_strength("ui_left")
 	
-	# Update left and right movement
-	direction = (Input.get_action_strength("ui_right")) - (Input.get_action_strength("ui_left"))
+	# SPEED_UP and SPEED_DOWN
+	veltmp2.y += Input.get_action_strength("ui_up")
+	veltmp2.y -= Input.get_action_strength("ui_down")
 	
-	# Move the player
+	# Gravity (placeholder)
 	if (!self.is_on_floor()):
-		self.move_and_collide(Vector3(0.0, -3.0 * delta, 0.0))
+		vel.y = -6.0
 	
-	# if (self.is_on_floor() and Input.get_):
+	# TODO: Properly compute the jumping behaviours
+	# Jumping (placeholder)
+	if (Input.get_action_strength("ui_select") and jumpleft <= 0.0):
+		jumpleft = 1.0
 	
-	self.move_and_collide(Vector3(3.0 * direction * delta, 0.0, -3.0 * forward * delta))
+	if (jumpleft > 0.0):
+		# vel.y = 0.0 # cancelling gravity
+		var jump = (jumpleft * -jumpleft) + 1.0
+		jumpleft -= 1.0 * delta
+		vel.y = jumpleft
 	
+	vel.x = 3.0 * veltmp2.x
+	vel.y = vel.y * 3.0
+	vel.z = -3.0 * veltmp2.y
+	
+	vel *= delta
+	
+	self.move_and_collide(vel)
 
 func set_speed_settings(minspd, maxspd, current):
-	forward = current
+	speed = current
 	maxSpeed = maxspd
 	minSpeed = minspd
 
+func reset_velocity():
+	vel = Vector3(0.0, 0.0, 0.0)
+
 func get_speed():
-	return forward
+	return speed
 
 func set_physics_state(fwd, dir):
 	pass

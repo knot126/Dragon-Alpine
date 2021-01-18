@@ -44,10 +44,14 @@ func getScore():
 func getGems():
 	return gems
 
+func getPlayerPos():
+	return player.transform.location
+
 func getMap():
 	return g_GameConfig.levels[g_GameConfig.level]
 
 func getMapAndInc():
+	g_GameConfig.level += 1
 	return self.getMap()
 
 func loadSegment(name):

@@ -6,7 +6,7 @@ var level : int = 0
 var debug_level : String = ""
 
 func load_levels():
-	var x = LevelParser.new()
+	var x = XMLParser.new()
 	x.open("res://assets/game.xml")
 	while (x.get_node_name() != "level"):
 		x.read()

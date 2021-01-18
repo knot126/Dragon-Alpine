@@ -1,6 +1,7 @@
 extends Control
 
 var button_play
+var button_options
 var button_exit
 var button_start_debug
 var label_select_debug
@@ -8,6 +9,7 @@ var label
 
 func _ready():
 	button_play = $Play
+	button_options = $Options
 	button_exit = $Exit
 	button_start_debug = $DEBUG/START
 	label_select_debug = $DEBUG/LEVEL
@@ -15,6 +17,7 @@ func _ready():
 	
 	button_play.connect("pressed", self, "start_game")
 	button_exit.connect("pressed", self, "exit_game")
+	button_options.connect("pressed", self, "start_options")
 	button_start_debug.connect("pressed", self, "set_level_and_play")
 	
 	g_GameConfig.load_levels()
@@ -24,6 +27,9 @@ func _ready():
 
 func start_game():
 	get_tree().change_scene("res://scenes/Main.tscn")
+
+func start_options():
+	get_tree().change_scene("res://scenes/Options.tscn")
 
 func exit_game():
 	get_tree().quit(0)
