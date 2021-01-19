@@ -1,106 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/meshes/cube.obj" type="ArrayMesh" id=1]
-
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 2.01662, 0.5, 1.88751 )
+[ext_resource path="res://assets/levels/001.obj" type="ArrayMesh" id=1]
 
 [node name="Spatial" type="Spatial"]
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -2.19297 )
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0, 0, 0 )
 mesh = ExtResource( 1 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.508993, -2.30075 )
-shape = SubResource( 1 )
-
-[node name="StaticBody7" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.0283 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody7"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -2.19297 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody7"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.508993, -2.30075 )
-shape = SubResource( 1 )
-
-[node name="StaticBody8" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.05718 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody8"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -2.19297 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.508993, -2.30075 )
-shape = SubResource( 1 )
-
-[node name="StaticBody9" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.0608 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody9"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -2.19297 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody9"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.508993, -2.30075 )
-shape = SubResource( 1 )
-
-[node name="StaticBody4" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999958, 0.00925016, 0, -0.00925016, 0.999958, -2.05, 0, -18.1782 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody4"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -0.00417709 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody4"]
-transform = Transform( 1, 0, 0, 0, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, -0.508993, 0.0214119 )
-shape = SubResource( 1 )
-
-[node name="StaticBody5" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999958, 0.00925016, 0, -0.00925016, 0.999958, 0.40668, 0, -22.1867 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody5"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -0.00417709 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
-transform = Transform( 1, 0, 0, 0, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, -0.508993, 0.0214119 )
-shape = SubResource( 1 )
-
-[node name="StaticBody6" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999958, 0.00925016, 0, -0.00925016, 0.999958, 0.40668, 0, -22.1867 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody6"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -0.00417709 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody6"]
-transform = Transform( 1, 0, 0, 0, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, -0.508993, 0.0214119 )
-shape = SubResource( 1 )
-
-[node name="StaticBody10" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999958, 0.00925016, 0, -0.00925016, 0.999958, 0.40668, 0.443233, -28.3589 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody10"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -0.00417709 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody10"]
-transform = Transform( 1, 0, 0, 0, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, -0.508993, 0.0214119 )
-shape = SubResource( 1 )
-
-[node name="StaticBody11" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.999958, 0.00925016, 0, -0.00925016, 0.999958, 2.21372, 0, -32.7418 )
-
-[node name="CSGMesh" type="CSGMesh" parent="StaticBody11"]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 4, 0, -0.5, -0.00417709 )
-mesh = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody11"]
-transform = Transform( 1, 0, 0, 0, 1, 3.72529e-09, 0, -3.72529e-09, 1, 0, -0.508993, 0.0214119 )
-shape = SubResource( 1 )
