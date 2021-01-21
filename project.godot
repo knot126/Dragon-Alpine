@@ -28,8 +28,8 @@ _global_script_class_icons={
 
 config/name="Quick Run"
 run/main_scene="res://scenes/Menu.tscn"
-boot_splash/image="res://assets/images/Splash.png"
-boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
+boot_splash/image="res://assets/images/splash.png"
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
 
 [autoload]

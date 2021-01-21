@@ -1,9 +1,9 @@
 extends KinematicBody
 
-var speed : float = 0.0   # Unused
-var max_speed : float = 5.0  # The player's max speed
+var speed : float = 0.0       # The player's current speed
+var max_speed : float = 5.0   # The player's max speed
 var min_speed : float = 2.25  # The player's minium speed
-var jumpleft : float = 0.0  # The remaining percent of the jump left
+var jumpleft : float = 0.0    # The remaining percent of the jump left
 
 func _ready():
 	self.add_to_group("Player")
@@ -33,13 +33,19 @@ func _physics_process(delta):
 		jumpleft -= 1.0 * delta
 		vel.y = jumpleft
 	
+	var col = self.test_move(self.transform, Vector3(0,0.001,0))
+	if (!col and jumpleft <= -1.0):
+		var i = randf()
+		var fall = (i * -i) + 1
+		vel.y = -fall
+	
 	if (speed > max_speed):
 		speed = max_speed
 	if (speed < min_speed):
 		speed = min_speed
 	
 	vel.x = side_move * speed
-	vel.y = vel.y * speed
+	vel.y = vel.y * speed * 0.8
 	vel.z = -speed
 	
 	# Making sure everything is against the delta time
@@ -48,12 +54,16 @@ func _physics_process(delta):
 	self.move_and_collide(vel)
 
 func set_speed_settings(minspd, maxspd, current):
-	speed = current
+	if (speed != null):
+		speed = current
 	max_speed = maxspd
 	min_speed = minspd
 
 func get_speed():
 	return speed
+
+func get_debug():
+	return {"dcoli": self.test_move(self.transform, Vector3(0,0.001,0))}
 
 func set_physics_state(fwd, dir):
 	pass

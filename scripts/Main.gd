@@ -37,6 +37,7 @@ func _physics_process(delta):
 	
 	# Update the HUD
 	hud.updateHud(score, gems, player.get_speed())
+	hud.update_debug(player.get_debug())
 
 func getScore():
 	return score
@@ -50,9 +51,8 @@ func getPlayerPos():
 func getMap():
 	return g_GameConfig.levels[g_GameConfig.level]
 
-func getMapAndInc():
+func setMap():
 	g_GameConfig.level += 1
-	return self.getMap()
 
 func loadSegment(name):
 	pass
