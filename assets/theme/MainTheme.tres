@@ -6,14 +6,14 @@
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 120, 64 )
 margin_right = 67.0369
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0, 0, 0, 0.501961 )
 
 [resource]
@@ -28,7 +28,7 @@ Button/icons/Play = null
 Button/styles/disabled = SubResource( 1 )
 Button/styles/focus = ExtResource( 2 )
 Button/styles/hover = ExtResource( 2 )
-Button/styles/normal = SubResource( 3 )
+Button/styles/normal = SubResource( 2 )
 Button/styles/pressed = ExtResource( 2 )
 LineEdit/colors/clear_button_color = Color( 0.88, 0.88, 0.88, 1 )
 LineEdit/colors/clear_button_color_pressed = Color( 1, 1, 1, 1 )
@@ -41,6 +41,6 @@ LineEdit/constants/minimum_spaces = 12
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
 LineEdit/styles/focus = null
-LineEdit/styles/normal = SubResource( 4 )
+LineEdit/styles/normal = SubResource( 3 )
 LineEdit/styles/read_only = null
-Panel/styles/panel = SubResource( 5 )
+Panel/styles/panel = SubResource( 4 )

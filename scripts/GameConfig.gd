@@ -4,7 +4,7 @@ var keymap = {}
 var levels = []
 var level : int = 0
 var debug_level : String = ""
-var game_version = [0, 0, 3]
+var game_version = [0, 0, 4, "-dev1"]
 
 func load_levels():
 	var x = XMLParser.new()
@@ -24,4 +24,4 @@ func inc_level():
 	level = level + 1
 
 func get_game_version_string():
-	return str(game_version[0]) + "." + str(game_version[1]) + "." + str(game_version[2])
+	return str(game_version[0]) + "." + str(game_version[1]) + "." + str(game_version[2]) + game_version[3]
