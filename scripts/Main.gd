@@ -12,11 +12,15 @@ var direction = 0.0
 var camera = null
 var player = null
 var hud = null
+var level = null
+var world = null
 
 func _ready():
 	camera = $Camera
 	player = $Player
-	hud = $GameHud
+	hud    = $GameHud
+	level  = $Level
+	world  = $World
 	
 	player.set_speed_settings(minSpeed, maxSpeed, defSpeed)
 

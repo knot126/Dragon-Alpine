@@ -4,6 +4,7 @@ var speed : float = 0.0       # The player's current speed
 var max_speed : float = 5.0   # The player's max speed
 var min_speed : float = 2.25  # The player's minium speed
 var jumpleft : float = 0.0    # The remaining percent of the jump left
+var touch_move : Vector2
 
 func _ready():
 	self.add_to_group("Player")
@@ -11,6 +12,14 @@ func _ready():
 func _physics_process(delta):
 	var vel : Vector3 = Vector3(0.0, 0.0, 0.0)
 	var side_move : float = 0.0
+	
+	# Touch controls
+	
+	if (g_GameConfig.enable_touch_controls):
+		side_move += touch_move.x
+		speed += -touch_move.y
+		
+		touch_move = Vector2(0, 0)
 	
 	# Update speed
 	
@@ -52,6 +61,16 @@ func _physics_process(delta):
 	vel *= delta
 	
 	self.move_and_collide(vel)
+
+func _input(event):
+	if event is InputEventScreenTouch:
+		var s = get_viewport().get_visible_rect().size
+		
+		touch_move = event.position
+		touch_move.x = (touch_move.x / s.x) * 2 - 1
+		touch_move.y = (touch_move.y / s.y) * 2 - 1
+		
+		print("<scripts/Player.gd> Touch event! : Pos = ", touch_move)
 
 func set_speed_settings(minspd, maxspd, current):
 	if (speed != null):

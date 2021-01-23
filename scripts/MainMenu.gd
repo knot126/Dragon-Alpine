@@ -24,18 +24,18 @@ func _ready():
 	label_select_debug.text = g_GameConfig.levels[g_GameConfig.level]
 	version_note.text = "Quick Run version " + g_GameConfig.get_game_version_string()
 	$DEBUG/SYSID.text = OS.get_unique_id()
-	
-	var a = {"test": "tset"}.hash()
 
 func start_game():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 func start_options():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/Options.tscn")
 
 func exit_game():
 	get_tree().quit(0)
 
 func set_level_and_play():
-	var level = label_select_debug.text
+	g_GameConfig.debug_level = label_select_debug.text
 	self.start_game()

@@ -86,8 +86,8 @@ __meta__ = {
 
 [node name="LEVEL" type="LineEdit" parent="DEBUG"]
 margin_top = 50.0
-margin_right = 190.0
-margin_bottom = 90.0
+margin_right = 200.0
+margin_bottom = 100.0
 custom_fonts/font = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,8 +112,8 @@ __meta__ = {
 
 [node name="SYSID" type="LineEdit" parent="DEBUG"]
 margin_top = 190.0
-margin_right = 180.0
-margin_bottom = 230.0
+margin_right = 200.0
+margin_bottom = 240.0
 custom_fonts/font = ExtResource( 4 )
 editable = false
 __meta__ = {
@@ -132,3 +132,12 @@ __meta__ = {
 }
 
 [node name="Spatial" parent="." instance=ExtResource( 5 )]
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -96.0
+margin_right = 903.0
+text = "Controls: 
+Mobile: Tap left and right of the screen to move direction, and press in top or bottom to chnage speed.
+Desktop: Use arrow keys to change speed and direction."
