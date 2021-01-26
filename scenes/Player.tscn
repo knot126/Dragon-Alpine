@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/meshes/cube.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/meshes/you_win.obj" type="ArrayMesh" id=2]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.5, 0.5, 0.5 )
@@ -13,5 +13,6 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Player" type="MeshInstance" parent="."]
+transform = Transform( 0.863374, 0, 0, 0, 0.61681, 0, 0, 0, 0.80178, 0, -0.476748, 0 )
 mesh = ExtResource( 2 )
 material/0 = null
