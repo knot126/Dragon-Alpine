@@ -5,19 +5,17 @@ var room_offset = 0.0
 var segments = []
 
 func _ready():
-	var s = $MeshInstance
-	s.create_trimesh_collision()
-	
-	var mesh = MeshInstance.new()
-	mesh.mesh = CubeMesh.new()
-	
-	mesh.mesh.size = Vector3(1, 1, 1)
-	mesh.translation = Vector3(0, 0, -8)
+	#var s = $MeshInstance
+	#s.create_trimesh_collision()
+	var l = ["test", "untitled"]
 	
 	for i in range(10):
-		self.load_segment("test")
+		self.load_segment(l[randi()%len(l)])
 
 func _physics_process(delta):
+	pass
+
+func load_level(name : String):
 	pass
 
 func load_room(name : String):

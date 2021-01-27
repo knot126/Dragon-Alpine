@@ -1,0 +1,6 @@
+<!-- Exported with Quick Run Blender Creator ver 2021-1-26 -->
+<segment size="12.0 10.0 16.0">
+	<box pos="0.0 1.0 0.0" size="2.0 2.0 2.0" template="cave" />
+	<obstacle pos="2.0 1.0 0.0" template="cave" script="spinner" params="{&quot;blades&quot;:3}" />
+	<script pos="-3.0 0.0 0.0" size="3.0 6.0" template="cave" script="thomas.lua" params="{&quot;spinners&quot;: 4, &quot;whackers&quot;: false, &quot;material&quot;: [&quot;wood&quot;, &quot;clay&quot;]}" />
+</segment>
