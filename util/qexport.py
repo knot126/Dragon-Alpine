@@ -5,7 +5,7 @@ bl_info = {
     "name": "Quick Run Blender Builder",
     "description": "Stage exporter for quick run",
     "author": "Decent Games",
-    "version": (2021, 1, 26),
+    "version": (2021, 1, 28),
     "blender": (2, 80, 0),
     "location": "",
     "warning": "", # used for warning icon and text in addons panel
@@ -24,8 +24,8 @@ from bpy.types import (Panel, Menu, Operator, PropertyGroup)
 MAX_STRING_LENGTH = 500
 
 # Get an XML segment root node
-def make_root_node():
-	properties = {"size": "12.0 10.0 16.0"}
+def make_root_node(scene):
+	properties = {"size": scene.QuickRun.size}
 	
 	node = et.Element("segment", properties)
 	node.text = "\n\t"
@@ -68,7 +68,7 @@ def add_object(root, obj, last):
 
 # Export the stage to file
 def export_stage_to_file(path, context):
-	tree = make_root_node()
+	tree = make_root_node(bpy.context.scene)
 	
 	for i in range(len(bpy.data.objects)):
 		obj = bpy.data.objects[i]
@@ -140,6 +140,15 @@ class QuickRunObjectProperties(PropertyGroup):
 		maxlen = MAX_STRING_LENGTH,
 		)
 
+class QuickRunSegmentProperties(PropertyGroup):
+	
+	size: StringProperty(
+		name = "Size",
+		description = "The size of this segment. The first two properties are not used",
+		default = "12.0 10.0 16.0",
+		maxlen = MAX_STRING_LENGTH,
+		)
+
 # The panel in the items menu
 class QuickRunObjectPanel(Panel):
 	bl_label = "Quick Run Object"
@@ -166,10 +175,33 @@ class QuickRunObjectPanel(Panel):
 		
 		layout.separator()
 
+class QuickRunSegmentPanel(Panel):
+	bl_label = "Quick Run Segment"
+	bl_idname = "OBJECT_PT_quickrun_object_panel"
+	bl_space_type = "VIEW_3D"   
+	bl_region_type = "UI"
+	bl_category = "Scene"
+	bl_context = "objectmode"
+	
+	@classmethod
+	def poll(self, context):
+		return context.scene is not None
+	
+	def draw(self, context):
+		layout = self.layout
+		scene = context.scene
+		QuickRunSegmentProperties = scene.QuickRun
+		
+		layout.prop(QuickRunSegmentProperties, "size")
+		
+		layout.separator()
+
 # Classes in this script
 classes = (
 	QuickRunObjectProperties,
 	QuickRunObjectPanel,
+	QuickRunSegmentProperties,
+	QuickRunSegmentPanel,
 	QuickRunExport
 )
 
@@ -180,6 +212,7 @@ def register():
 		register_class(c)
 	
 	bpy.types.Object.QuickRun = PointerProperty(type=QuickRunObjectProperties)
+	bpy.types.Scene.QuickRun = PointerProperty(type=QuickRunSegmentProperties)
 	
 	bpy.types.TOPBAR_MT_file_export.append(draw_export)
 

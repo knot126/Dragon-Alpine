@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=2]
 [ext_resource path="res://assets/images/logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Jost_Medium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/MenuBackground.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/CommonGui.tscn" type="PackedScene" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -47,19 +48,6 @@ margin_right = 200.0
 margin_bottom = 148.0
 custom_fonts/font = ExtResource( 4 )
 text = "Exit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VersionNote" type="Label" parent="."]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -107.0
-margin_right = 107.0
-margin_bottom = 30.0
-custom_fonts/font = ExtResource( 4 )
-text = "Quick Run version X.Y.Z"
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,3 +129,5 @@ margin_right = 903.0
 text = "Controls: 
 Mobile: Tap left and right of the screen to move direction, and press in top or bottom to chnage speed.
 Desktop: Use arrow keys to change speed and direction."
+
+[node name="CommonGui" parent="." instance=ExtResource( 6 )]

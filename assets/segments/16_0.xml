@@ -1,0 +1,10 @@
+<!-- Exported with Quick Run Blender Creator ver 2021-1-26 -->
+<segment size="12.0 10.0 16.0">
+	<box pos="0.0 0.0 -8.0" size="1.0 1.0 16.0" />
+	<box pos="3.0 0.0 -8.0" size="1.0 1.0 16.0" />
+	<box pos="-2.0 0.0 -7.0" size="1.0 16.0 1.0" />
+	<box pos="-3.0 0.0 -8.0" size="1.0 1.0 16.0" />
+	<box pos="1.0 0.0 -7.0" size="1.0 16.0 1.0" />
+	<box pos="2.0 0.0 -10.0" size="1.0 16.0 1.0" />
+	<box pos="-1.0 0.0 -10.0" size="1.0 16.0 1.0" />
+</segment>
