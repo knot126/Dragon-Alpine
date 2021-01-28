@@ -14,14 +14,22 @@ func _ready():
 	button_start_debug = $DEBUG/START
 	label_select_debug = $DEBUG/LEVEL
 	
+	#if (!g_GameConfig.enable_quit_button):
+	#	button_exit.free()
+	
 	button_play.connect("pressed", self, "start_game")
+	#if (button_exit):
 	button_exit.connect("pressed", self, "exit_game")
 	button_options.connect("pressed", self, "start_options")
-	button_start_debug.connect("pressed", self, "set_level_and_play")
 	
 	g_GameConfig.load_levels()
-	label_select_debug.text = g_GameConfig.levels[g_GameConfig.level]
-	$DEBUG/SYSID.text = OS.get_unique_id()
+	
+	if (g_GameConfig.enable_debug_features):
+		button_start_debug.connect("pressed", self, "set_level_and_play")
+		label_select_debug.text = g_GameConfig.levels[g_GameConfig.level]
+		$DEBUG/SYSID.text = OS.get_unique_id()
+	else:
+		$DEBUG.free()
 
 func start_game():
 # warning-ignore:return_value_discarded

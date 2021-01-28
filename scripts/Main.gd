@@ -25,7 +25,7 @@ func _ready():
 	player.set_speed_settings(minSpeed, maxSpeed, defSpeed)
 
 func _process(delta):
-	# lol don't use "get_action_strength" here FIXME
+	# don't use "get_action_strength" here FIXME
 	if (Input.get_action_strength("ui_cancel") > 0.1):
 		self.leaveGame()
 
@@ -66,6 +66,6 @@ func leaveGame():
 	
 	# Savestate
 	var f = File.new()
-	f.open("user://savegame.txt", File.WRITE)
-	f.store_string("[MAIN]\ngems = " + str(gems) + "\nscore = " + str(score) + "\nmap = " + self.getMap())
+	f.open("user://savegame.json", File.WRITE)
+	f.store_string("{\n\t\"gems\": " + str(gems) + ",\n\t\"score\": " + str(score) + ",\n\t\"map\": \"" + self.getMap() + "\"\n}")
 	f.close()

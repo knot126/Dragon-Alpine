@@ -1,10 +1,15 @@
 extends CanvasLayer
 
 var debug_expanded = false
+var debug_n
 
 func _ready():
-	$debug/show.connect("pressed", self, "show_debug")
-	$debug.rect_size = Vector2(200, 30)
+	if (g_GameConfig.enable_debug_features):
+		$debug/show.connect("pressed", self, "show_debug")
+		$debug.rect_size = Vector2(200, 30)
+		debug_n = $debug
+	else:
+		$debug.free()
 
 func _process(delta):
 	pass
@@ -15,7 +20,8 @@ func updateHud(score, gems, speed):
 	$Speed.text = str(speed) + "m/s"
 
 func update_debug(params):
-	$debug/inf1.text = str(params["dcoli"])
+	if (debug_n):
+		$debug/inf1.text = str(params["dcoli"])
 
 func show_debug():
 	if (!debug_expanded):

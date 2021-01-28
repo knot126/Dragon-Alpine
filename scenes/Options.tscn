@@ -49,4 +49,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DebugCtrlToggle" type="CheckBox" parent="Main"]
+margin_left = 15.0
+margin_top = 90.0
+margin_right = 221.0
+margin_bottom = 120.0
+text = "Show debugging features"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CommonGui" parent="." instance=ExtResource( 4 )]
