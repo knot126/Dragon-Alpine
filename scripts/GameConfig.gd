@@ -4,7 +4,7 @@ extends Node
 var levels = []
 var level : int = 0
 var debug_level : String = ""
-var game_version = [0, 0, 4, "-dev1"]
+var game_version = [0, 0, 4, "-dev2"]
 var enable_touch_controls : bool = true
 var enable_debug_features : bool = true
 
