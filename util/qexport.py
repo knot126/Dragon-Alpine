@@ -5,7 +5,7 @@ bl_info = {
     "name": "Quick Run Blender Builder",
     "description": "Stage exporter for quick run",
     "author": "Decent Games",
-    "version": (2021, 1, 28),
+    "version": (2021, 1, 30),
     "blender": (2, 80, 0),
     "location": "",
     "warning": "", # used for warning icon and text in addons panel
@@ -177,8 +177,8 @@ class QuickRunObjectPanel(Panel):
 
 class QuickRunSegmentPanel(Panel):
 	bl_label = "Quick Run Segment"
-	bl_idname = "OBJECT_PT_quickrun_object_panel"
-	bl_space_type = "VIEW_3D"   
+	bl_idname = "OBJECT_PT_quickrun_segment_panel"
+	bl_space_type = "VIEW_3D"
 	bl_region_type = "UI"
 	bl_category = "Scene"
 	bl_context = "objectmode"

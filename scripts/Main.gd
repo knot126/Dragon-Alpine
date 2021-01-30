@@ -43,6 +43,9 @@ func _physics_process(delta):
 	hud.updateHud(score, gems, player.get_speed())
 	hud.update_debug(player.get_debug())
 
+func set_pos(pos : Vector3):
+	player.translation = pos
+
 func getScore():
 	return score
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=2]
-[ext_resource path="res://assets/images/logo.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Jost_Medium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/MenuBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/CommonGui.tscn" type="PackedScene" id=6]

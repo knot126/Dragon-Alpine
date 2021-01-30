@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/menu_textbox.svg-f41aa8cd8c825434dc3799692a716b0d.stex"
+path="res://.import/menu_button_hover.svg-e7ef5eee53f14aa8e9c6bed7a17f7fd0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/menu_textbox.svg"
-dest_files=[ "res://.import/menu_textbox.svg-f41aa8cd8c825434dc3799692a716b0d.stex" ]
+source_file="res://assets/textures/menu_button_hover.svg"
+dest_files=[ "res://.import/menu_button_hover.svg-e7ef5eee53f14aa8e9c6bed7a17f7fd0.stex" ]
 
 [params]
 

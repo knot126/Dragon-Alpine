@@ -1,15 +1,18 @@
-extends CanvasLayer
+extends Control
 
 var debug_expanded = false
 var debug_n
 
 func _ready():
 	if (g_GameConfig.enable_debug_features):
-		$debug/show.connect("pressed", self, "show_debug")
-		$debug.rect_size = Vector2(200, 30)
-		debug_n = $debug
+		debug_n = $DbgWindow
+		
+		debug_n.get_node("show").connect("pressed", self, "show_debug")
+		debug_n.get_node("Main/setpos").connect("pressed", self, "set_player_pos")
+		debug_n.rect_size = Vector2(200, 50)
+		debug_n.get_node("Main").visible = false
 	else:
-		$debug.free()
+		debug_n.free()
 
 func _process(delta):
 	pass
@@ -20,12 +23,20 @@ func updateHud(score, gems, speed):
 	$Speed.text = str(speed) + "m/s"
 
 func update_debug(params):
-	if (debug_n):
-		$debug/inf1.text = str(params["dcoli"])
+	#if (debug_n):
+	#	debug_n.get_node("Main/inf1").text = str(params["dcoli"])
+	pass
 
 func show_debug():
 	if (!debug_expanded):
-		$debug.rect_size = Vector2(200, 1280)
+		debug_n.rect_size = Vector2(200, 1280)
+		debug_n.get_node("Main").visible = true
 	else:
-		$debug.rect_size = Vector2(200, 30)
+		debug_n.rect_size = Vector2(200, 50)
+		debug_n.get_node("Main").visible = false
 	debug_expanded = !debug_expanded
+
+func set_player_pos():
+	var a = []
+	for c in Array($DbgWindow/Main/pos.text.split(" ")): a.append(int(c))
+	get_tree().get_root().get_node("GameSpace").set_pos(Vector3(a[0], a[1], a[2]))

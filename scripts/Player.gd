@@ -72,9 +72,6 @@ func _input(event):
 		
 		print("<scripts/Player.gd> Touch event! : Pos = ", touch_move)
 
-func setpos(pos : Vector3):
-	self.location = pos
-
 func set_speed_settings(minspd, maxspd, current):
 	if (speed != null):
 		speed = current
