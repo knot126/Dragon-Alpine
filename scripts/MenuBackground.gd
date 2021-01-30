@@ -3,9 +3,8 @@ extends Spatial
 var cubes = []
 
 func _ready():
-	cubes = [$MeshInstance, $MeshInstance2, $MeshInstance3, $MeshInstance4, $MeshInstance5, $MeshInstance6, $MeshInstance7, 
-			 $MeshInstance8, $MeshInstance9, $MeshInstance10, $MeshInstance11]
+	pass
 
 func _process(delta):
-	for c in cubes:
-		c.translation.y += ((randi() % 3) - 1) * delta
+	$Camera.translation += Vector3(0.0, 0.0, -2.0 * delta)
+	$Camera.rotation_degrees += Vector3(0.0, 0.0, 5.0 * delta)

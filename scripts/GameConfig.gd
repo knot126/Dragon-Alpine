@@ -1,6 +1,5 @@
 extends Node
 
-# var keymap = {}
 var levels = []
 var level : int = 0
 var debug_level : String = ""

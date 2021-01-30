@@ -30,6 +30,7 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 g_GameConfig="*res://scripts/GameConfig.gd"
+g_GameServer="*res://scripts/GameServer.gd"
 
 [display]
 
