@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/theme/MainTheme.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/fonts/Jost_Medium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/MenuBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/CommonGui.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/music/test.ogg" type="AudioStream" id=7]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -179,3 +180,15 @@ Mobile: Tap left and right of the screen to move direction, and press in top or 
 Desktop: Use arrow keys to change speed and direction."
 
 [node name="CommonGui" parent="." instance=ExtResource( 6 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = -42.0
+margin_right = 640.0

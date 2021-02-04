@@ -7,6 +7,9 @@ var game_version = [0, 0, 4, "-dev2"]
 var enable_touch_controls : bool = true
 var enable_debug_features : bool = true
 
+func _ready():
+	self.load_levels()
+
 func load_levels():
 	var x = XMLParser.new()
 	x.open("res://assets/game.xml")

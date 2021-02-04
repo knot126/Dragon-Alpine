@@ -30,6 +30,8 @@ func _ready():
 	for b in buttons:
 		b.rect_position += Vector2(0, v)
 		v += 60
+	
+	$Music.playing = true
 
 func _process(delta):
 	# This is only used for network stuff

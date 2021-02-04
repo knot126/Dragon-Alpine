@@ -1,0 +1,6 @@
+<room length="250" sh="true">
+	<segment name="sh/crank"/>
+	<segment name="sh/crank2"/>
+	<segment name="sh/hammer"/>
+	<segment name="sh/hammer2"/>
+</room>

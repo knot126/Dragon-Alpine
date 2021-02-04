@@ -30,8 +30,8 @@ func _physics_process(delta):
 		side_move -= Input.get_action_strength("ui_left")
 		
 		# SPEED_UP and SPEED_DOWN
-		speed += Input.get_action_strength("ui_up") * 0.06
-		speed -= Input.get_action_strength("ui_down") * 0.06
+		speed += (Input.get_action_strength("ui_up") + 1.0) * 0.06
+		speed -= (Input.get_action_strength("ui_down") + 1.0) * 0.06
 		
 		# TODO: SEMIDONE: Properly compute the jumping behaviour
 		# Set if the player should be in the jumping state
@@ -56,7 +56,7 @@ func _physics_process(delta):
 			speed = min_speed
 		
 		vel.x = side_move * speed
-		vel.y = vel.y * speed * 0.8
+		vel.y = vel.y * speed * 0.6
 		vel.z = -speed
 		
 		# Making sure everything is against the delta time
