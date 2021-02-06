@@ -23,6 +23,8 @@ func _ready():
 	world  = $World
 	
 	player.set_speed_settings(minSpeed, maxSpeed, defSpeed)
+	
+	$Jukebox.playing = true
 
 func _process(delta):
 	# don't use "get_action_strength" here FIXME

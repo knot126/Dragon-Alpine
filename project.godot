@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Box",
 "language": "GDScript",
 "path": "res://scripts/Box.gd"
+}, {
+"base": "Node",
+"class": "QAudio",
+"language": "GDScript",
+"path": "res://scripts/Audio.gd"
 } ]
 _global_script_class_icons={
-"Box": ""
+"Box": "",
+"QAudio": ""
 }
 
 [application]

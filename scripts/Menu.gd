@@ -31,7 +31,11 @@ func _ready():
 		b.rect_position += Vector2(0, v)
 		v += 60
 	
-	$Music.playing = true
+	#var myAudio = QAudio.new()
+	#myAudio.open("test")
+	#myAudio.play()
+	
+	# $Music.playing = true
 
 func _process(delta):
 	# This is only used for network stuff

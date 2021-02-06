@@ -17,6 +17,10 @@ func _ready():
 func _process(delta):
 	pass
 
+func _input(event):
+	if (event is InputEventScreenDrag) and ($DbgWindow.has_focus()):
+		$DbgWindow.rect_position += event.relative
+
 func updateHud(score, gems, speed):
 	$Gems.text = str(gems)
 	$Score.text = str(score)

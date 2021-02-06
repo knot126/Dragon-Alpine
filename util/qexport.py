@@ -5,7 +5,7 @@ bl_info = {
     "name": "Quick Run Blender Builder",
     "description": "Stage exporter for quick run",
     "author": "Decent Games",
-    "version": (2021, 1, 30),
+    "version": (2021, 2, 5),
     "blender": (2, 80, 0),
     "location": "",
     "warning": "", # used for warning icon and text in addons panel
@@ -52,9 +52,11 @@ def add_object(root, obj, last):
 		if (obj.QuickRun.params and obj.QuickRun.params != "{}"):
 			properties["params"] = obj.QuickRun.params
 	
-	kind = "null-object"
+	kind = "null"
 	if (obj.QuickRun.kind == "BOX"):
 		kind = "box"
+	elif (obj.QuickRun.kind == "ITEM"):
+		kind = "item"
 	elif (obj.QuickRun.kind == "OBSTACLE"):
 		kind = "obstacle"
 	elif (obj.QuickRun.kind == "SCRIPT"):
@@ -127,6 +129,7 @@ class QuickRunObjectProperties(PropertyGroup):
 		name = "Kind",
 		description = "The kind of object that the currently selected object should be treated as. Data will be exported as an invalid entity.",
 		items = [ ('BOX', "Box", "A simple box"),
+				  ('ITEM', "Gem (Item)", "Collectable item or gem"),
 				  ('OBSTACLE', "Scripted Obstacle", "Obstacle created by a script"),
 				  ('SCRIPT', "Script Trigger", "Script trigger panel"),
 				],
@@ -135,7 +138,7 @@ class QuickRunObjectProperties(PropertyGroup):
 	
 	params: StringProperty(
 		name = "Script Paramaters",
-		description = "Script paramater(s), as a JSON object",
+		description = "Script or item paramater(s), as a JSON object",
 		default = "{}",
 		maxlen = MAX_STRING_LENGTH,
 		)
@@ -169,7 +172,8 @@ class QuickRunObjectPanel(Panel):
 		
 		layout.prop(QuickRunObjectProperties, "kind")
 		if (QuickRunObjectProperties.kind != "BOX"):
-			layout.prop(QuickRunObjectProperties, "script")
+			if (QuickRunObjectProperties.kind != "ITEM"):
+				layout.prop(QuickRunObjectProperties, "script")
 			layout.prop(QuickRunObjectProperties, "params")
 		layout.prop(QuickRunObjectProperties, "template")
 		
