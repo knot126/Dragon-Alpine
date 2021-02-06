@@ -1,5 +1,9 @@
 extends KinematicBody
 
+class_name Player
+
+signal player_dead(message)
+
 var speed : float = 0.0       # The player's current speed
 var max_speed : float = 5.0   # The player's max speed
 var min_speed : float = 2.25  # The player's minium speed
@@ -65,9 +69,12 @@ func _physics_process(delta):
 		self.move_and_collide(vel)
 	else:
 		print("I am NetworkPlayer.")
+	
+	if (translation.y < -2.0):
+		emit_signal("player_dead", "Out of Bounds!")
 
 func _input(event):
-	if event is InputEventScreenTouch:
+	if (event is InputEventScreenDrag):
 		var s = get_viewport().get_visible_rect().size
 		
 		touch_move = event.position
@@ -86,7 +93,7 @@ func get_speed():
 	return speed
 
 func get_debug():
-	return {"dcoli": self.test_move(self.transform, Vector3(0,0.001,0))}
+	return {"dcoli": self.test_move(self.transform, Vector3(0, 0.001, 0))}
 
 func set_physics_state(fwd, dir):
 	pass

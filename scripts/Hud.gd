@@ -13,6 +13,9 @@ func _ready():
 		debug_n.get_node("Main").visible = false
 	else:
 		debug_n.free()
+	
+	self.connect("Player.player_dead", self, "show_dead")
+	self.hide_dead()
 
 func _process(delta):
 	pass
@@ -39,6 +42,13 @@ func show_debug():
 		debug_n.rect_size = Vector2(200, 50)
 		debug_n.get_node("Main").visible = false
 	debug_expanded = !debug_expanded
+
+func show_dead(message):
+	$Message.text = message
+	$Message.visible = true
+
+func hide_dead():
+	$Message.visible = false
 
 func set_player_pos():
 	var a = []
