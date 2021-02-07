@@ -59,4 +59,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DemoCtrlToggle" type="CheckBox" parent="Main"]
+margin_left = 15.0
+margin_top = 130.0
+margin_right = 260.0
+margin_bottom = 160.0
+text = "Demo mode"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CommonGui" parent="." instance=ExtResource( 4 )]

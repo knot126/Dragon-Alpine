@@ -1,13 +1,20 @@
 extends Node
 
+signal hud_message(message)
+
 var levels = []
 var level : int = 0
 var debug_level : String = ""
 var game_version = [0, 0, 4, "-dev2"]
 var enable_touch_controls : bool = true
 var enable_debug_features : bool = true
+var enable_demo_mode      : bool = false
 
 func _ready():
+	if (enable_demo_mode):
+		game_version[3] = "-demo"
+		enable_debug_features = false
+		enable_touch_controls = false
 	self.load_levels()
 
 func load_levels():

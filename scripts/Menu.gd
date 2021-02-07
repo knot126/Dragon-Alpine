@@ -18,6 +18,12 @@ func _ready():
 	
 	g_GameConfig.load_levels()
 	
+	if (g_GameConfig.enable_demo_mode):
+		buttons = [$Play, $Exit]
+		$Options.free()
+		$Networking.free()
+		$Play.text = "Play Demo"
+	
 	if (g_GameConfig.enable_debug_features):
 		button_start_debug.connect("pressed", self, "set_level_and_play")
 		button_connect_debug.connect("pressed", self, "do_server_routine")
@@ -30,12 +36,6 @@ func _ready():
 	for b in buttons:
 		b.rect_position += Vector2(0, v)
 		v += 60
-	
-	#var myAudio = QAudio.new()
-	#myAudio.open("test")
-	#myAudio.play()
-	
-	# $Music.playing = true
 
 func _process(delta):
 	# This is only used for network stuff

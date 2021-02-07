@@ -1,5 +1,7 @@
 extends Spatial
 
+signal hud_message(message)
+
 const senseitivity = 5
 const defSpeed = 2.25
 const minSpeed = 2.0
@@ -23,6 +25,7 @@ func _ready():
 	world  = $World
 	
 	player.set_speed_settings(minSpeed, maxSpeed, defSpeed)
+	# hud.connect("hud_message", hud, "show_message")
 	
 	$Jukebox.playing = true
 
@@ -42,8 +45,16 @@ func _physics_process(delta):
 	score = int(-player.translation.z - 2)
 	
 	# Update the HUD
-	hud.updateHud(score, gems, player.get_speed())
+	hud.update_hud(score, gems, player.get_speed())
 	hud.update_debug(player.get_debug())
+	
+	# Update the player dead status
+	if (player.translation.y < -2.0):
+		hud.show_message("Out of Bounds!")
+	
+	# Exit on end of room
+	if (player.translation.z < -200.0):
+		self.leaveGame()
 
 func set_pos(pos : Vector3):
 	player.translation = pos

@@ -1,5 +1,7 @@
 extends Node
 
+signal game_start
+
 var players = {}
 var connection_info = {"status": "Unused"}
 var player_info = {name = "MyTestName", pos = Vector3()}

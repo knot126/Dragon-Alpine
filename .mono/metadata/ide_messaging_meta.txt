@@ -1,2 +1,0 @@
-﻿43519
-/home/user/Downloads/Programs/Godot 3.2.3/Godot_v3.2.3-stable_mono_x11.64

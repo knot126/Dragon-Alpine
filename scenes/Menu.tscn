@@ -179,12 +179,3 @@ Mobile: Tap left and right of the screen to move direction, and press in top or 
 Desktop: Use arrow keys to change speed and direction."
 
 [node name="CommonGui" parent="." instance=ExtResource( 6 )]
-
-[node name="LineEdit" type="LineEdit" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -640.0
-margin_top = -42.0
-margin_right = 640.0
