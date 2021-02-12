@@ -177,5 +177,8 @@ margin_right = 903.0
 text = "Controls: 
 Mobile: Tap left and right of the screen to move direction, and press in top or bottom to chnage speed.
 Desktop: Use arrow keys to change speed and direction."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CommonGui" parent="." instance=ExtResource( 6 )]
