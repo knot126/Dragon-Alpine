@@ -8,6 +8,8 @@ func _ready():
 	fps_count = $Fps
 	
 	version_note.text = "Quick Run version " + g_GameConfig.get_game_version_string()
+	if (g_GameConfig.enable_name_hide):
+		version_note.text = "Codename 'Dragon Alpine' version " + g_GameConfig.get_game_version_string()
 	
 	version_note.rect_position.x = (get_viewport().get_visible_rect().size.x / 2) - (version_note.rect_size.x / 2)
 

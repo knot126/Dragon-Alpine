@@ -38,6 +38,10 @@ config/windows_native_icon="res://icon.ico"
 g_GameConfig="*res://scripts/GameConfig.gd"
 g_GameServer="*res://scripts/GameServer.gd"
 
+[debug]
+
+settings/fps/force_fps=70
+
 [display]
 
 window/size/width=1280

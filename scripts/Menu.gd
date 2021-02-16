@@ -32,11 +32,16 @@ func _ready():
 	else:
 		$DEBUG.free()
 	
+	if (g_GameConfig.enable_name_hide):
+		$Logo.free()
+		$CNLogo.visible = true
+	
 	var v = 0
 	for b in buttons:
 		b.rect_position += Vector2(0, v)
 		v += 60
 
+# warning-ignore:unused_argument
 func _process(delta):
 	# This is only used for network stuff
 	
@@ -69,6 +74,7 @@ func set_level_and_play():
 
 func do_server_routine():
 	if ($DEBUG/SERVER.pressed):
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/NetView.tscn")
 	else:
 		g_GameServer.client_init($DEBUG/NETADDR.text)

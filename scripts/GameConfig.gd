@@ -9,6 +9,7 @@ var game_version = [0, 0, 4, "-dev2"]
 var enable_touch_controls : bool = true
 var enable_debug_features : bool = true
 var enable_demo_mode      : bool = false
+var enable_name_hide      : bool = true
 
 func _ready():
 	if (enable_demo_mode):
