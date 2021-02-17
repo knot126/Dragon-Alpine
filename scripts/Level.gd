@@ -1,5 +1,7 @@
 extends Spatial
 
+export var gem_scene : PackedScene
+
 var next_pos : float = 0.0
 var room_offset : float = 0.0
 var loaded_segments = []
@@ -51,6 +53,11 @@ func load_room(name : String, smashhit : bool = false):
 		elif (room.get_node_name() == "room"):
 			if (!target_length):
 				target_length = float(room.get_named_attribute_value_safe("length"))
+			
+			if (room.get_named_attribute_value_safe("colour")):
+				var colour = Color(room.get_named_attribute_value_safe("colour"))
+				$World.environment.fog_color = colour
+				$World.environment.background_color = colour
 	
 	while (target_length > 0.0):
 		target_length -= self.load_segment(segments[randi() % len(segments)], smashhit)
@@ -61,6 +68,8 @@ func load_segment(name : String, smashhit_compat : bool = false):
 	var seg_size : float = 0.0
 	
 	seg.open("res://assets/segments/" + name + ".xml")
+	
+	# This will product a lot of warnings (there is a better way to do it, but I don't have the time right now.)
 	
 	while (!seg.read()):
 		if (seg.get_node_name() == "segment"):
@@ -88,6 +97,14 @@ func load_segment(name : String, smashhit_compat : bool = false):
 			mesh.create_trimesh_collision()
 			self.add_child(mesh)
 			components.append(mesh)
+		
+		elif (seg.get_node_name() == "item"):
+			var pos = Array(seg.get_named_attribute_value_safe("pos").split_floats(" "))
+			var gem = gem_scene.instance()
+			
+			gem.translation = Vector3(pos[0], pos[1], pos[2] - next_pos + room_offset)
+			
+			self.add_child(gem)
 		
 		elif (seg.get_node_name() == "script"):
 			print("Script triggers are not supported in godot. In seg ", name)

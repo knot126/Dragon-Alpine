@@ -1,4 +1,4 @@
-<room length="200">
+<room length="200" colour="5be5cc">
 	<segment name="16_0"/>
 	<segment name="test"/>
 <!-- 	<segment name="untitled"/> -->
