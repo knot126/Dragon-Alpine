@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "QAudio",
 "language": "GDScript",
 "path": "res://scripts/Audio.gd"
+}, {
+"base": "Node",
+"class": "TextureManager",
+"language": "GDScript",
+"path": "res://scripts/TextureManager.gd"
 } ]
 _global_script_class_icons={
 "Box": "",
-"QAudio": ""
+"QAudio": "",
+"TextureManager": ""
 }
 
 [application]
@@ -37,6 +43,7 @@ config/windows_native_icon="res://icon.ico"
 
 g_GameConfig="*res://scripts/GameConfig.gd"
 g_GameServer="*res://scripts/GameServer.gd"
+g_TextureManager="*res://scripts/TextureManager.gd"
 
 [debug]
 
@@ -52,6 +59,26 @@ window/size/height=720
 cam_scroll={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":3,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+key_a={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+key_q={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
+}
+key_w={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+key_s={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
  ]
 }
 

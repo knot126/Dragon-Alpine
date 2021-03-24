@@ -1,12 +1,12 @@
-# Quick Run level and segment export
+# Alpine level and segment export
 # Copyright (C) 2021 Decent Games
 
 bl_info = {
-    "name": "Quick Run Blender Builder",
-    "description": "Stage exporter for quick run",
+    "name": "Alpine Blender Builder",
+    "description": "Stage exporter for Alpine",
     "author": "Decent Games",
-    "version": (2021, 2, 5),
-    "blender": (2, 80, 0),
+    "version": (2021, 2, 24),
+    "blender": (2, 91, 0),
     "location": "",
     "warning": "", # used for warning icon and text in addons panel
     "wiki_url": "",
@@ -82,7 +82,7 @@ def export_stage_to_file(path, context):
 	
 	# Write the segment
 	
-	file_header = "<!-- Exported with Quick Run Blender Creator ver " + str(bl_info["version"][0]) + "-" + str(bl_info["version"][1]) + "-" + str(bl_info["version"][2]) + " -->\n"
+	file_header = "<!-- Exported with Alpine Blender Creator ver " + str(bl_info["version"][0]) + "-" + str(bl_info["version"][1]) + "-" + str(bl_info["version"][2]) + " -->\n"
 	contents = file_header + et.tostring(tree, encoding = "unicode")
 	
 	with open(path, "w") as f:
@@ -93,7 +93,7 @@ def export_stage_to_file(path, context):
 # Export operation
 class QuickRunExport(bpy.types.Operator, bpy_extras.io_utils.ExportHelper):
 	bl_idname = "quick_run.export"
-	bl_label = "Export Quick Run Segment"
+	bl_label = "Export to Alpine"
 	
 	filename_ext = ".xml"
 	filter_glob = StringProperty(
@@ -106,7 +106,7 @@ class QuickRunExport(bpy.types.Operator, bpy_extras.io_utils.ExportHelper):
 		return export_stage_to_file(self.filepath, context)
 
 def draw_export(self, context):
-	self.layout.operator("quick_run.export", text="Quick Run Stage (.xml)")
+	self.layout.operator("quick_run.export", text="Alpine Stage (.xml)")
 
 # Quick Run segment properties
 class QuickRunObjectProperties(PropertyGroup):
@@ -154,11 +154,11 @@ class QuickRunSegmentProperties(PropertyGroup):
 
 # The panel in the items menu
 class QuickRunObjectPanel(Panel):
-	bl_label = "Quick Run Object"
+	bl_label = "Object"
 	bl_idname = "OBJECT_PT_quickrun_object_panel"
 	bl_space_type = "VIEW_3D"   
 	bl_region_type = "UI"
-	bl_category = "Item"
+	bl_category = "Alpine"
 	bl_context = "objectmode"
 	
 	@classmethod
@@ -180,11 +180,11 @@ class QuickRunObjectPanel(Panel):
 		layout.separator()
 
 class QuickRunSegmentPanel(Panel):
-	bl_label = "Quick Run Segment"
+	bl_label = "Scene"
 	bl_idname = "OBJECT_PT_quickrun_segment_panel"
 	bl_space_type = "VIEW_3D"
 	bl_region_type = "UI"
-	bl_category = "Scene"
+	bl_category = "Alpine"
 	bl_context = "objectmode"
 	
 	@classmethod

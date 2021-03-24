@@ -18,7 +18,7 @@ func _ready():
 func _physics_process(delta):
 	if (player_pos > next_pos - 16):
 		if (not len(rooms) < next_room):
-			self.load_room(rooms[next_room])
+			self.load_room(rooms[next_room], g_GameConfig.smash_hit_compat_set)
 			next_room += 1
 		else:
 			g_GameConfig.inc_level()
@@ -84,15 +84,29 @@ func load_segment(name : String, smashhit_compat : bool = false):
 			var size = Array(seg.get_named_attribute_value_safe("size").split_floats(" "))
 			var pos  = Array(seg.get_named_attribute_value_safe("pos").split_floats(" "))
 			
+			var colour = Array(seg.get_named_attribute_value_safe("colour").split_floats(" "))
+			var texture = seg.get_named_attribute_value_safe("texture")
+			
 			if (!size or !pos):
 				continue
 			
 			var mesh = MeshInstance.new()
 			mesh.mesh = CubeMesh.new()
 			
+			# Transform
 			mesh.mesh.size = Vector3(size[0], size[1], size[2])
 			if (smashhit_compat): mesh.mesh.size = Vector3(size[0]*2, size[1]*2, size[2]*2)
 			mesh.translation = Vector3(pos[0], pos[1], pos[2] - next_pos + room_offset)
+			
+			# Material
+			var mat = SpatialMaterial.new()
+			if (len(colour) == 3):
+				colour = Color(colour[0], colour[1], colour[2])
+				mat.albedo_color = colour
+			if (texture):
+				mat.albedo_texture = g_TextureManager.get(texture)
+				mat.uv1_triplanar = true
+			mesh.set_surface_material(0, mat)
 			
 			mesh.create_trimesh_collision()
 			self.add_child(mesh)

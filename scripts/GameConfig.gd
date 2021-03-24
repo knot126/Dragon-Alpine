@@ -10,12 +10,16 @@ var enable_touch_controls : bool = true
 var enable_debug_features : bool = true
 var enable_demo_mode      : bool = false
 var enable_name_hide      : bool = false
+var smash_hit_compat_set  : bool = false
 
 func _ready():
 	if (enable_demo_mode):
 		game_version[3] = "-demo"
 		enable_debug_features = false
 		enable_touch_controls = false
+	
+	g_TextureManager.init()
+	
 	self.load_levels()
 
 func load_levels():

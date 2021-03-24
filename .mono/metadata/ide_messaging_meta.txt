@@ -1,2 +1,0 @@
-﻿38749
-/home/user/Downloads/Programs/Godot 3.2.4-rc2/Godot_v3.2.4-rc2_mono_x11.64

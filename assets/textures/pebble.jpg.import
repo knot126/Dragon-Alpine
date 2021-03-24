@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Z_pebble.JPG-3aeaa410ed7907f1654c280c56d102a9.stex"
+path="res://.import/pebble.jpg-182dc5fb8242521bc763c3e6b23c4177.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/Z_pebble.JPG"
-dest_files=[ "res://.import/Z_pebble.JPG-3aeaa410ed7907f1654c280c56d102a9.stex" ]
+source_file="res://assets/textures/pebble.jpg"
+dest_files=[ "res://.import/pebble.jpg-182dc5fb8242521bc763c3e6b23c4177.stex" ]
 
 [params]
 
